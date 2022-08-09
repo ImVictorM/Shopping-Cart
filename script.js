@@ -1,3 +1,5 @@
+// const { fetchItem } = require("./helpers/fetchItem");
+
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -39,14 +41,22 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
 };
 
 function transformData(data) {
-  return data.map((element) => {
-    const { id, title, thumbnail } = element;
-    return {
-      sku: id,
-      name: title,
-      image: thumbnail,
-    };
-  });
+  if (Array.isArray(data)) {
+    return data.map((element) => {
+      const { id, title, thumbnail } = element;
+      return {
+        sku: id,
+        name: title,
+        image: thumbnail,
+      };
+    });
+  }
+  const { id, title, price } = data;
+  return {
+    sku: id,
+    name: title,
+    salePrice: price,
+  };
 }
 
 function appendProducts(productList) {
@@ -56,9 +66,26 @@ function appendProducts(productList) {
     itemsSection.appendChild(product);
   });
 }
+// ref Array.from: https://stackoverflow.com/questions/22754315/for-loop-for-htmlcollection-elements
+function addItemEvent(listOfButtons) {
+  const buttons = Array.from(listOfButtons);
+  buttons.forEach((button) => {
+    button.addEventListener('click', async (event) => {
+      const element = event.target;
+      const id = element.parentElement.firstElementChild.innerText;
+      const data = await fetchItem(id);
+      const item = transformData(data);
+      const listItem = createCartItemElement(item);
+      const cartItemsList = document.getElementsByClassName('cart__items')[0];
+      cartItemsList.appendChild(listItem);
+    });
+  });
+}
 
 window.onload = async () => {
   const { results } = await fetchProducts('computador');
   const data = transformData(results);
   appendProducts(data);
+  const buttons = document.getElementsByClassName('item__add');
+  addItemEvent(buttons);
 };

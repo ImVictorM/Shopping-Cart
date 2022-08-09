@@ -10,8 +10,6 @@ const fetchItem = async (itemId) => {
   }
 };
 
-fetchItem('MLB1615760527');
-
 if (typeof module !== 'undefined') {
   module.exports = {
     fetchItem,
