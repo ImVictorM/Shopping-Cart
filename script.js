@@ -66,19 +66,21 @@ function appendProducts(productList) {
     itemsSection.appendChild(product);
   });
 }
+
+async function pushToCart(event) {
+  const element = event.target;
+  const id = element.parentElement.firstElementChild.innerText;
+  const data = await fetchItem(id);
+  const item = transformData(data);
+  const listItem = createCartItemElement(item);
+  const cartItemsList = document.getElementsByClassName('cart__items')[0];
+  cartItemsList.appendChild(listItem);
+}
 // ref Array.from: https://stackoverflow.com/questions/22754315/for-loop-for-htmlcollection-elements
-function addItemEvent(listOfButtons) {
+function addButtonsEvent(listOfButtons) {
   const buttons = Array.from(listOfButtons);
   buttons.forEach((button) => {
-    button.addEventListener('click', async (event) => {
-      const element = event.target;
-      const id = element.parentElement.firstElementChild.innerText;
-      const data = await fetchItem(id);
-      const item = transformData(data);
-      const listItem = createCartItemElement(item);
-      const cartItemsList = document.getElementsByClassName('cart__items')[0];
-      cartItemsList.appendChild(listItem);
-    });
+    button.addEventListener('click', pushToCart);
   });
 }
 
@@ -87,5 +89,5 @@ window.onload = async () => {
   const data = transformData(results);
   appendProducts(data);
   const buttons = document.getElementsByClassName('item__add');
-  addItemEvent(buttons);
+  addButtonsEvent(buttons);
 };
