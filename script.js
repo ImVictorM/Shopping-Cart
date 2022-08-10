@@ -3,6 +3,7 @@
 // const getSavedCartItems = require("./helpers/getSavedCartItems");
 const cartItemsList = document.getElementsByClassName('cart__items')[0];
 const totalElement = document.getElementsByClassName('total-price')[0];
+const resetButton = document.getElementsByClassName('empty-cart')[0];
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -50,6 +51,19 @@ function totalMinus(price) {
   saveTotal(total);
 }
 
+function totalSum({ price }) {
+  const currentValue = Number(totalElement.innerText.replace(',', '.'));
+  const total = currentValue + Number(price);
+  totalElement.innerText = total;
+  saveTotal(total);
+}
+
+function resetCart() {
+  cartItemsList.innerHTML = '';
+  totalElement.innerText = '00,00';
+  localStorage.clear();
+}
+
 const cartItemClickListener = (event) => {
   const element = event.target;
   const elementText = element.innerText;
@@ -95,14 +109,6 @@ function appendProducts(productList) {
   });
 }
 
-function totalSum({ price }) {
-  const currentValue = Number(totalElement.innerText.replace(',', '.'));
-  const total = currentValue + Number(price);
-  totalElement.innerText = total;
-  saveTotal(total);
-  console.log(total);
-}
-
 async function pushToCart(event) {
   const element = event.target;
   const id = element.parentElement.firstElementChild.innerText;
@@ -137,4 +143,5 @@ window.onload = async () => {
   appendProducts(data);
   const buttons = document.getElementsByClassName('item__add');
   addButtonsEvent(buttons);
+  resetButton.addEventListener('click', resetCart);
 };
