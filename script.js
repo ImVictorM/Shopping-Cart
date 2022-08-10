@@ -4,6 +4,7 @@
 const cartItemsList = document.getElementsByClassName('cart__items')[0];
 const totalElement = document.getElementsByClassName('total-price')[0];
 const resetButton = document.getElementsByClassName('empty-cart')[0];
+const itemsContainer = document.getElementsByClassName('items')[0];
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -127,6 +128,17 @@ function addButtonsEvent(listOfButtons) {
   });
 }
 
+function onLoad() {
+  const loadElement = document.createElement('p');
+  loadElement.innerText = 'carregando...';
+  loadElement.classList.add('loading');
+  itemsContainer.appendChild(loadElement);
+}
+
+function loadCompleted() {
+  itemsContainer.firstChild.remove();
+}
+
 window.onload = async () => {
   const cartItemsHTML = getSavedCartItems();
   if (cartItemsHTML !== null) {
@@ -138,7 +150,9 @@ window.onload = async () => {
   if (total !== null) {
     totalElement.innerText = total;
   }
+  onLoad();
   const { results } = await fetchProducts('computador');
+  loadCompleted();
   const data = transformData(results);
   appendProducts(data);
   const buttons = document.getElementsByClassName('item__add');
