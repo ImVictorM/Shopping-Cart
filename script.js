@@ -2,6 +2,7 @@
 // const saveCartItems = require("./helpers/saveCartItems");
 // const getSavedCartItems = require("./helpers/getSavedCartItems");
 const cartItemsList = document.getElementsByClassName('cart__items')[0];
+const totalElement = document.getElementsByClassName('total-price')[0];
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -31,8 +32,30 @@ const createProductItemElement = ({ sku, name, image }) => {
 
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
+function saveTotal(total) {
+  localStorage.setItem('amount', total);
+}
+
+function getTotal(key) {
+  return localStorage.getItem(key);
+}
+
+function totalMinus(price) {
+  const currentValue = Number(totalElement.innerText);
+  let total = currentValue - Number(price);
+  if (total === 0) {
+    total = '00,00';
+  } 
+  totalElement.innerText = total;
+  saveTotal(total);
+}
+
 const cartItemClickListener = (event) => {
   const element = event.target;
+  const elementText = element.innerText;
+  const dollarSignIndex = elementText.indexOf('$');
+  const price = elementText.substring(dollarSignIndex + 1, elementText.length);
+  totalMinus(price);
   element.remove();
   saveCartItems(cartItemsList.innerHTML);
 };
@@ -72,11 +95,20 @@ function appendProducts(productList) {
   });
 }
 
+function totalSum({ price }) {
+  const currentValue = Number(totalElement.innerText.replace(',', '.'));
+  const total = currentValue + Number(price);
+  totalElement.innerText = total;
+  saveTotal(total);
+  console.log(total);
+}
+
 async function pushToCart(event) {
   const element = event.target;
   const id = element.parentElement.firstElementChild.innerText;
   const data = await fetchItem(id);
   const item = transformData(data);
+  totalSum(data);
   const listItem = createCartItemElement(item);
   cartItemsList.appendChild(listItem);
   saveCartItems(cartItemsList.innerHTML);
@@ -95,6 +127,10 @@ window.onload = async () => {
     cartItemsList.insertAdjacentHTML('afterbegin', cartItemsHTML);
     const items = Array.from(cartItemsList.children);
     items.forEach((product) => product.addEventListener('click', cartItemClickListener));
+  }
+  const total = getTotal('amount');
+  if (total !== null) {
+    totalElement.innerText = total;
   }
   const { results } = await fetchProducts('computador');
   const data = transformData(results);
