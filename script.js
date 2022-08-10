@@ -1,4 +1,7 @@
 // const { fetchItem } = require("./helpers/fetchItem");
+// const saveCartItems = require("./helpers/saveCartItems");
+// const getSavedCartItems = require("./helpers/getSavedCartItems");
+const cartItemsList = document.getElementsByClassName('cart__items')[0];
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -31,6 +34,7 @@ const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').inn
 const cartItemClickListener = (event) => {
   const element = event.target;
   element.remove();
+  saveCartItems(cartItemsList.innerHTML);
 };
 
 const createCartItemElement = ({ sku, name, salePrice }) => {
@@ -74,8 +78,8 @@ async function pushToCart(event) {
   const data = await fetchItem(id);
   const item = transformData(data);
   const listItem = createCartItemElement(item);
-  const cartItemsList = document.getElementsByClassName('cart__items')[0];
   cartItemsList.appendChild(listItem);
+  saveCartItems(cartItemsList.innerHTML);
 }
 // ref Array.from: https://stackoverflow.com/questions/22754315/for-loop-for-htmlcollection-elements
 function addButtonsEvent(listOfButtons) {
@@ -86,6 +90,12 @@ function addButtonsEvent(listOfButtons) {
 }
 
 window.onload = async () => {
+  const cartItemsHTML = getSavedCartItems();
+  if (cartItemsHTML !== null) {
+    cartItemsList.insertAdjacentHTML('afterbegin', cartItemsHTML);
+    const items = Array.from(cartItemsList.children);
+    items.forEach((product) => product.addEventListener('click', cartItemClickListener));
+  }
   const { results } = await fetchProducts('computador');
   const data = transformData(results);
   appendProducts(data);
