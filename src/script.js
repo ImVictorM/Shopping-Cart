@@ -1,6 +1,3 @@
-// const { fetchItem } = require("./helpers/fetchItem");
-// const saveCartItems = require("./helpers/saveCartItems");
-// const getSavedCartItems = require("./helpers/getSavedCartItems");
 const cartItemsList = document.getElementsByClassName('cart__items')[0];
 const totalElement = document.getElementsByClassName('total-price')[0];
 const resetButton = document.getElementsByClassName('empty-cart')[0];
@@ -31,8 +28,6 @@ const createProductItemElement = ({ sku, name, image }) => {
 
   return section;
 };
-
-// const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
 function saveTotal(total) {
   localStorage.setItem('amount', total);
