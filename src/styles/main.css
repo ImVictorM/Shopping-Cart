@@ -1,0 +1,7 @@
+@import url("reset.css");
+@import url("theme.css");
+
+body {
+  font-family: Epilogue, sans-serif;
+  background-color: var(--background-color);
+}
