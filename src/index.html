@@ -18,6 +18,8 @@
   </head>
   <body>
     <header-base></header-base>
+
+    <div ng-view></div>
     
     <section class="container">
       <section class="items"></section>
@@ -29,16 +31,27 @@
       </section>
     </section>
 
-    <!-- Libs-->
+    <!-- Libs -->
     <script src="app/lib/angular/angular.js"></script>
     <script src="app/lib/angular-route/angular-route.js"></script>
 
-    <!-- Modules-->
+    <!-- Modules -->
     <script src="app/app.module.js"></script>
     <script src="app/core/core.module.js"></script>
     <script src="app/core/layout/header/header-base.module.js"></script>
+    <script src="app/features/features.module.js"></script>
+    <script src="app/features/products/products.module.js"></script>
+    <script src="app/features/products/services/mercado-livre/mercado-livre.module.js"></script>
+    <script src="app/features/products/components/product-list/product-list.module.js"></script>
+
+    <!-- Routes -->
+    <script src="app/features/products/products.routes.js"></script>
+
+    <!-- Services -->
+    <script src="app/features/products/services/mercado-livre/mercado-livre.service.js"></script>
  
-    <!-- Components-->
+    <!-- Components -->
     <script src="app/core/layout/header/header-base.component.js"></script>
+    <script src="app/features/products/components/product-list/product-list.component.js"></script>
   </body>
 </html>

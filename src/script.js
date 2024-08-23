@@ -136,11 +136,13 @@ function loadCompleted() {
 
 window.onload = async () => {
   const cartItemsHTML = getSavedCartItems();
+  
   if (cartItemsHTML !== null) {
     cartItemsList.insertAdjacentHTML('afterbegin', cartItemsHTML);
     const items = Array.from(cartItemsList.children);
     items.forEach((product) => product.addEventListener('click', cartItemClickListener));
   }
+
   const total = getTotal('amount');
   if (total !== null) {
     totalElement.innerText = total;
