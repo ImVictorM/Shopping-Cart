@@ -1,2 +1,6 @@
 .vscode
 node_modules/
+src/app/lib/
+tmp
+.DS_Store
+.idea

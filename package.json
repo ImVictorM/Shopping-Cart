@@ -1,12 +1,21 @@
 {
   "author": "Victor Figueiredo Mendes",
   "license": "MIT",
-  "name": "shopping-cart",
+  "name": "tech-cart",
   "version": "2.0.0",
-  "description": "Shopping cart application",
+  "description": "Simple e-commerce application using angular",
   "type": "commonjs",
   "scripts": {
-    "start": "http-server src/ -a localhost -p 7777 -c-1"
+    "postinstall": "npm run copy-libs",
+    "start": "http-server src/ -a localhost -p 7777 -c-1",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" src/app/lib -C",
+    "prestart": "npm install",
+    "pretest": "npm install",
+    "test": "karma start karma.config.js",
+    "update-webdriver": "webdriver-manager update --gecko false",
+    "preupdate-webdriver": "npm install",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.config.js"
   },
   "dependencies": {
     "angular": "^1.8.2",
@@ -14,9 +23,16 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "angular-mocks": "^1.8.3",
+    "cpx": "^1.5.0",
     "eslint": "^9.9.0",
     "eslint-plugin-angular": "^4.1.0",
     "globals": "^15.9.0",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "jasmine-core": "^5.2.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0",
+    "protractor": "^7.0.0"
   }
 }
