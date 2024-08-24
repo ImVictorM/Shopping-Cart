@@ -2,6 +2,6 @@ angular
   .module("features.products")
   .config(["$routeProvider", function ($routeProvider) {
     $routeProvider.when("/", {
-      templateUrl: "app/features/products/views/products.view.html",
+      templateUrl: "app/features/products/views/products/products.template.html",
     })
   }]);

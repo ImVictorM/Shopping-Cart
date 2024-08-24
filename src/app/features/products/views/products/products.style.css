@@ -1,0 +1,27 @@
+.products-cart {
+  display: flex;
+}
+
+.products-cart__products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-gap: 0.7em;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.products-cart__cart {
+  display: none;
+  width: 48%;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .products-cart__products {
+    margin: 0 0 0 2em;
+  }
+
+  .products-cart__cart {
+    display: block;
+  }
+}

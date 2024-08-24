@@ -11,7 +11,12 @@ angular
         ctrl.products = [];
 
         MercadoLivreAPI.getProductsByType("computer").then(response => {
-          ctrl.products = response.results;
+          ctrl.products = response.results.map((p) => ({
+            title: p.title,
+            price: p.price.toFixed(2).replace(".", ","),
+            thumbnail: p.thumbnail,
+          }));
+          
           ctrl.loading = false;
         });
       }

@@ -1,7 +1,18 @@
-<div ng-if="$ctrl.loading">
-  Loading...
-</div>
+<ul class="product-list">
+  <li class="product-list__product" ng-repeat="product in $ctrl.products">
+    <div class="product-list__product__top">
+      <div class="product-list__product__top__img">
+        <img ng-src="{{product.thumbnail}}" />
+      </div>
 
-<section ng-if="!$ctrl.loading">
-  <h1>products go here boy</h1>
-</section>
+      <div class="product-list__product__top__details">
+        <h5 class="product-list__product__top__details__title">{{product.title}}</h5>
+        <span class="product-list__product__top__details__price">R$ {{product.price}}</span>
+      </div>
+    </div>
+
+    <div class="product-list__product__bottom">
+      <button type="button" class="product-list__product__bottom__button">Add to cart</button>
+    </div>
+  </li>
+</ul>

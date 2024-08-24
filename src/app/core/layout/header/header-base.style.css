@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   width: 100%;
@@ -12,7 +12,7 @@
 }
 
 .header__title__text {
-  color: rgb(221, 221, 221);
+  color: var(--title-color);
   font-size: 30px;
   padding-left: 30px;
 }
@@ -39,21 +39,21 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  color: #FFFFFF;
+  color: var(--title-color);
   font-weight: 900;
 }
 
 .header__button__cart-icon {
   position: relative;
   font-size: 30px;
-  color: #FFFFFF;
+  color: var(--title-color);
 }
 
 .header__cart {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: var(--secondary);
+  background-color: var(--secondary-color);
   width: 40%;
   height: 100%;
   margin-left: 30px;
@@ -70,7 +70,7 @@
   right: 61.5%;
   width: 39.5%;
   height: 15px;
-  background: var(--secondary);
+  background: var(--secondary-color);
   transform: skew(-45deg);
   z-index: 0;
 }
@@ -82,7 +82,7 @@
   right: 61.5%;
   width: 39.5%;
   height: 15px;
-  background: var(--secondary);
+  background: var(--secondary-color);
   transform: skew(45deg);
   z-index: 0;
 }

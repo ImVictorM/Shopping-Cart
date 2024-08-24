@@ -1,5 +1,9 @@
 :root {
-  --background-color: rgb(246, 246, 246);
-  --secondary: rgb(10, 118, 79);
-  --primary: rgb(3, 52, 45);
+  --primary-color: #03342D;
+  --secondary-color: #0A764F;
+  --background-color: #F6F6F6;
+  --title-color: #FFFFFF;
+  --card-background-color: #FFFFFF;
+  --card-title-color: #333333;
+  --primary-button-background-color: #0534DB;
 }
