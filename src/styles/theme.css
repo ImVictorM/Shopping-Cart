@@ -3,7 +3,6 @@
   --secondary-color: #0A764F;
   --background-color: #F6F6F6;
   --title-color: #FFFFFF;
-  --card-background-color: #FFFFFF;
-  --card-title-color: #333333;
-  --primary-button-background-color: #0534DB;
+  --muted-color: #6c757d;
+  --primary-contrast-color: #0534DB;
 }

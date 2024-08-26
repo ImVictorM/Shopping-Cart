@@ -1,0 +1,30 @@
+<section class="cart-overview" ng-class="{'cart-overview--full-height': $ctrl.scrolledDown}">
+  <h3 class="cart-overview__title">My cart</h3>
+
+  <ul class="cart-overview__list">
+    <li class="cart-overview__list__item" ng-repeat="overviewItem in $ctrl.products">
+      <div class="cart-overview__list__item__presentation">
+        <img class="cart-overview__list__item__presentation__img" ng-src="{{overviewItem.thumbnail}}" />
+      </div>
+      
+      <div class="cart-overview__list__item__product-details">
+        <p class="cart-overview__list__item__product-details__seller">{{overviewItem.seller.name}}</p>
+        <p class="cart-overview__list__item__product-details__title">{{overviewItem.title}}</p>
+      </div>
+      
+      <div class="cart-overview__list__item__buying-details">
+        <p class="cart-overview__list__item__buying-details__quantity">Quantity: <span>{{overviewItem.quantity}}</span></p>
+        <p class="cart-overview__list__item__buying-details__subtotal"><span>R$ {{overviewItem.subtotal}}</span></p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="cart-overview__total">
+    <p>Products total: <span>R$ {{$ctrl.total}}</span></p>
+
+    <div>
+      <button>Clear cart</button>
+      <button>Go to checkout</button>
+    </div>
+  </div>
+</section>
