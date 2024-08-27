@@ -1,4 +1,4 @@
-<section class="cart-overview" ng-class="{'cart-overview--full-height': $ctrl.scrolledDown}">
+<section class="cart-overview">
   <h3 class="cart-overview__title">My cart</h3>
 
   <ul class="cart-overview__list">
@@ -19,12 +19,12 @@
     </li>
   </ul>
 
-  <div class="cart-overview__total">
-    <p>Products total: <span>{{$ctrl.total | brlCurrencyFilter}}</span></p>
+  <div class="cart-overview__summary">
+    <p class="cart-overview__summary__total">Products total: <span>{{$ctrl.total | brlCurrencyFilter}}</span></p>
 
-    <div>
-      <button>Clear cart</button>
-      <button>Go to checkout</button>
+    <div class="cart-overview__summary__controls">
+      <button ng-click="$ctrl.clearCart()" type="button" class="primary-button-outline">Clear cart</button>
+      <button type="button" class="primary-button">Go to checkout</button>
     </div>
   </div>
 </section>

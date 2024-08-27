@@ -1,10 +1,12 @@
 .header {
-  position: relative;
+  position: fixed;
   background-color: var(--primary-color);
   display: flex;
   align-items: center;
   width: 100%;
   height: var(--header-height);
+  z-index: 10;
+  box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
 }
 
 .header__title {
@@ -13,8 +15,8 @@
 
 .header__title__text {
   color: var(--title-color);
-  font-size: 30px;
-  padding-left: 30px;
+  font-size: 1.8rem;
+  padding-left: 1em;
 }
 
 .header__button {
@@ -45,7 +47,7 @@
 
 .header__button__cart-icon {
   position: relative;
-  font-size: 30px;
+  font-size: 2rem;
   color: var(--title-color);
 }
 
@@ -56,7 +58,7 @@
   background-color: var(--secondary-color);
   width: 40%;
   height: 100%;
-  margin-left: 30px;
+  margin-left: 1.5em;
 }
 
 .header__cart span {
@@ -89,7 +91,7 @@
 
 .header__cart__title {
   color: white;
-  font-size: 20px;
-  padding-left: 35px;
+  font-size: 1.5rem;
+  padding-left: 1.5em;
   font-weight: 700;
 }

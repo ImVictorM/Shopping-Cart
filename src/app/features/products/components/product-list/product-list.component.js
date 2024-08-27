@@ -16,7 +16,6 @@ angular
         }
 
         MercadoLivreAPI.getProductsByType("computer").then(response => {
-          console.log(response.results)
           ctrl.products = response.results.map((p) => ({
             seller: {
               id: p.seller.id,

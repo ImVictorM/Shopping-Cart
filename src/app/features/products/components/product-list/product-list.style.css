@@ -1,6 +1,6 @@
 .product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   grid-gap: 0.7em;
   padding: 0.5em;
 }
@@ -26,6 +26,8 @@
   flex-direction: column;
   justify-content: center;
   width: 60%;
+  min-width: 90px;
+  width: 90px;
 }
 
 .product-list__product__top__details {
@@ -47,15 +49,4 @@
 
 .product-list__product__bottom {
   margin-top: 0.5em;
-}
-
-.product-list__product__bottom__button {
-  width: 100%;
-  background-color: var(--primary-contrast-color);
-  border: 0;
-  cursor: pointer;
-  margin: 0;
-  padding: 10px;
-  color: var(--title-color);
-  border-radius: 4px;
 }

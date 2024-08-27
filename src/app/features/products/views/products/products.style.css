@@ -14,12 +14,13 @@
 .products-cart__cart {
   display: none;
   width: 48%;
+  position: relative;
 }
 
 
 @media screen and (min-width: 1200px) {
   .products-cart__products {
-    margin: 0 0 0 2em;
+    margin: 0 1em 0 2em;
   }
 
   .products-cart__cart {
