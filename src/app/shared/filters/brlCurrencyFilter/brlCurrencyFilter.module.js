@@ -1,1 +1,1 @@
-angular.module("shared.brlCurrencyFilter", []);
+angular.module("shared.filters.brlCurrencyFilter", []);

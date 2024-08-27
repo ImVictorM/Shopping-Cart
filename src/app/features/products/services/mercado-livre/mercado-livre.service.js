@@ -1,5 +1,5 @@
 angular
-  .module("MercadoLivre")
+  .module("features.products.services.MercadoLivre")
   .factory("MercadoLivreAPI", ["$http", function($http) {
     const domain = "https://api.mercadolibre.com";
 

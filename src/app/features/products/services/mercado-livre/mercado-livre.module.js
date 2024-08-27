@@ -1,1 +1,1 @@
-angular.module("MercadoLivre", []);
+angular.module("features.products.services.MercadoLivre", []);

@@ -1,5 +1,5 @@
 angular
-  .module("features.products.cartOverview")
+  .module("features.products.components.cartOverview")
   .component("cartOverview", {
     templateUrl: "app/features/products/components/cart-overview/cart-overview.template.html",
     controller: ["$rootScope", "$window", "Cart", function ($rootScope, $window, Cart) {

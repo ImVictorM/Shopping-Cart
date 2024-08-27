@@ -1,4 +1,4 @@
 angular.module("core", [
-  "headerBase",
-  "cart",
+  "core.layout.headerBase",
+  "core.services.headerBase",
 ]);

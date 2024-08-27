@@ -1,5 +1,5 @@
 angular
-  .module("features.products.productList")
+  .module("features.products.components.productList")
   .component("productList", {
     templateUrl: "app/features/products/components/product-list/product-list.template.html",
     controller: [

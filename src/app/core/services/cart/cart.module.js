@@ -1,1 +1,1 @@
-angular.module("cart", []);
+angular.module("core.services.headerBase", []);

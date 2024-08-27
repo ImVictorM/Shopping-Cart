@@ -1,5 +1,5 @@
 angular
-  .module("shared.brlCurrencyFilter")
+  .module("shared.filters.brlCurrencyFilter")
   .filter("brlCurrencyFilter", [function () {
     return function (input) {
       return input.toLocaleString("pt-br", { 
