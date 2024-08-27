@@ -17,16 +17,15 @@ angular
 
     function addProductToCart(product) {
       const productIndex = findProduct(product.id);
-      const productPrice = Number(product.price.replace(",", "."));
 
       if (productIndex !== -1) {
         sv.cart[productIndex].quantity += 1;
-        sv.cart[productIndex].subtotal = (Number(sv.cart[productIndex].subtotal.replace(",", ".")) + productPrice).toFixed(2).replace(".", ",");
+        sv.cart[productIndex].subtotal += product.price;
       } else {
         sv.cart.push({
           ...product,
           quantity: 1,
-          subtotal: productPrice.toFixed(2).replace(".", ",")
+          subtotal: product.price
         });
       }
     
@@ -38,11 +37,9 @@ angular
       const productIndex = findProduct(product.id);
       if (productIndex === -1) return;
 
-      const productPrice = Number(sv.cart[productIndex].price.replace(",", "."));
-
       if (sv.cart[productIndex].quantity > 1) {
         sv.cart[productIndex].quantity -= 1;
-        sv.cart[productIndex].subtotal = (Number(sv.cart[productIndex].subtotal.replace(",", ".")) - productPrice).toFixed(2).replace(".", ",");
+        sv.cart[productIndex].subtotal -= sv.cart[productIndex].price;
       } else {
         sv.cart = sv.cart.filter(product => product.id !== id);
       }
@@ -60,7 +57,7 @@ angular
     function getTotal() {
       return sv.cart.reduce((total, item) => {
 
-        return total + Number(item.subtotal.replace(",", "."));
+        return total + item.subtotal;
       }, 0);
     }
 

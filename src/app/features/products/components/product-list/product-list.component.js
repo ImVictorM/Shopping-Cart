@@ -10,6 +10,7 @@ angular
         ctrl.test = "sim"
         ctrl.loading = true;
         ctrl.products = [];
+
         ctrl.add = function (product) {
           Cart.addProductToCart(product);
         }
@@ -23,7 +24,7 @@ angular
             },
             id: p.id,
             title: p.title,
-            price: p.price.toFixed(2).replace(".", ","),
+            price: p.price,
             thumbnail: p.thumbnail,
           }));
           

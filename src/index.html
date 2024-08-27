@@ -23,16 +23,6 @@
     <header-base></header-base>
 
     <div ng-view></div>
-    
-    <!-- <section class="container">
-      <section class="items"></section>
-
-      <section class="cart">
-        <ol class="cart__items"></ol>
-        <p>total dos produtos: <strong>R$<span class="total-price">00,00</span></strong></p>
-        <button class="empty-cart">Esvaziar carrinho</button>
-      </section>
-    </section> -->
 
     <!-- Libs -->
     <script src="app/lib/angular/angular.js"></script>
@@ -41,6 +31,8 @@
     <!-- Modules -->
     <script src="app/app.module.js"></script>
     <script src="app/core/core.module.js"></script>
+    <script src="app/shared/shared.module.js"></script>
+    <script src="app/shared/filters/brlCurrencyFilter/brlCurrencyFilter.module.js"></script>
     <script src="app/core/services/cart/cart.module.js"></script>
     <script src="app/core/layout/header/header-base.module.js"></script>
     <script src="app/features/features.module.js"></script>
@@ -55,6 +47,9 @@
     <!-- Services -->
     <script src="app/core/services/cart/cart.service.js"></script>
     <script src="app/features/products/services/mercado-livre/mercado-livre.service.js"></script>
+
+    <!-- Filters -->
+    <script src="app/shared/filters/brlCurrencyFilter/brlCurrencyFilter.filter.js"></script>
  
     <!-- Components -->
     <script src="app/core/layout/header/header-base.component.js"></script>

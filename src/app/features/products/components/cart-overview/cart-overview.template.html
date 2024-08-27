@@ -14,13 +14,13 @@
       
       <div class="cart-overview__list__item__buying-details">
         <p class="cart-overview__list__item__buying-details__quantity">Quantity: <span>{{overviewItem.quantity}}</span></p>
-        <p class="cart-overview__list__item__buying-details__subtotal"><span>R$ {{overviewItem.subtotal}}</span></p>
+        <p class="cart-overview__list__item__buying-details__subtotal"><span>{{overviewItem.subtotal | brlCurrencyFilter}}</span></p>
       </div>
     </li>
   </ul>
 
   <div class="cart-overview__total">
-    <p>Products total: <span>R$ {{$ctrl.total}}</span></p>
+    <p>Products total: <span>{{$ctrl.total | brlCurrencyFilter}}</span></p>
 
     <div>
       <button>Clear cart</button>

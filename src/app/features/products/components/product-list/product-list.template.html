@@ -7,7 +7,7 @@
 
       <div class="product-list__product__top__details">
         <h5 class="product-list__product__top__details__title">{{product.title}}</h5>
-        <span class="product-list__product__top__details__price">R$ {{product.price}}</span>
+        <span class="product-list__product__top__details__price">{{product.price | brlCurrencyFilter}}</span>
       </div>
     </div>
 
