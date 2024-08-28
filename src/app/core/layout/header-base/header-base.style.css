@@ -1,32 +1,33 @@
 .header {
+  height: var(--header-height);
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
   background-color: var(--primary-color);
   display: flex;
   align-items: center;
-  width: 100%;
-  height: var(--header-height);
-  z-index: 10;
+  justify-content: space-between;
   box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
 }
 
-.header__title {
-  width: 80%;
-}
-
-.header__title__text {
+.header__brand {
   color: var(--title-color);
   font-size: 1.8rem;
   padding-left: 1em;
 }
 
-.header__button {
+.header__cart {
   display: flex;
   align-items: center;
   background: transparent;
   position: relative;
+  margin-left: auto;
 }
 
-.header__button__quantity {
+.header__cart__quantity {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -45,53 +46,45 @@
   font-weight: 900;
 }
 
-.header__button__cart-icon {
-  position: relative;
+.header__cart__icon {
   font-size: 2rem;
   color: var(--title-color);
 }
 
-.header__cart {
+.header__section {
   position: relative;
   display: flex;
   align-items: center;
   background-color: var(--secondary-color);
-  width: 40%;
   height: 100%;
   margin-left: 1.5em;
+  width: 30%;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background: var(--secondary-color);
+    z-index: 0;
+    left: -4px;
+  }
+
+  &:after {
+    top: 15px;
+    transform: skew(-45deg);
+  }
+
+  &:before {
+    top: 30px;
+    transform: skew(45deg);
+  }
 }
 
-.header__cart span {
-  z-index: 1;
-}
-
-.header__cart:after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: 61.5%;
-  width: 39.5%;
-  height: 15px;
-  background: var(--secondary-color);
-  transform: skew(-45deg);
-  z-index: 0;
-}
-
-.header__cart:before {
-  content: '';
-  position: absolute;
-  top: 30px;
-  right: 61.5%;
-  width: 39.5%;
-  height: 15px;
-  background: var(--secondary-color);
-  transform: skew(45deg);
-  z-index: 0;
-}
-
-.header__cart__title {
-  color: white;
+.header__section__title {
+  color: var(--title-color);
   font-size: 1.5rem;
-  padding-left: 1.5em;
+  padding: 0 1em 0  1.5em;
   font-weight: 700;
 }
