@@ -1,4 +1,6 @@
-<ul class="product-list">
+<img ng-if="$ctrl.loading" class="products-loading" src="/assets/icons/loading-spinner.svg"/>
+
+<ul ng-if="!$ctrl.loading" class="product-list">
   <li class="product-list__product" ng-repeat="product in $ctrl.products">
     <div class="product-list__product__top">
       <div class="product-list__product__top__img">
