@@ -8,7 +8,10 @@
       </div>
 
       <div class="product-list__product__top__details">
-        <h5 class="product-list__product__top__details__title">{{product.title}}</h5>
+        <a ng-href="#!/products/{{product.id}}" class="product-list__product__top__details__title">
+          <h5 title="{{product.title}}">{{product.title}}</h5>
+        </a>
+
         <span class="product-list__product__top__details__price">{{product.price | brlCurrencyFilter}}</span>
       </div>
     </div>

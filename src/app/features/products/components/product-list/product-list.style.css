@@ -47,6 +47,16 @@
 
 .product-list__product__top__details__title {
   color: var(--card-title-color);
+  transition: all 0.15s ease-in;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: 1.2rem;
+
+  &:hover {
+    color: var(--primary-contrast-color);
+  }
 }
 
 .product-list__product__top__details__price {

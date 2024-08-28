@@ -3,10 +3,10 @@
     <span class="header__brand__text"><strong>Tech Cart</strong> shopping</span>
   </div>
 
-  <button class="header__cart">
+  <a href="#!/checkout" class="header__cart">
     <i class="material-icons header__cart__icon">shopping_cart</i>
     <span ng-show="$ctrl.cartItemsQuantity !== 0" class="header__cart__quantity">{{$ctrl.cartItemsQuantity}}</span>
-  </button>
+  </a>
     
   <div class="header__section">
     <span class="header__section__title">{{$ctrl.currentSectionTitle}}</span>

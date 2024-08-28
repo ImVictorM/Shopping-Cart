@@ -25,6 +25,7 @@
   background: transparent;
   position: relative;
   margin-left: auto;
+  text-decoration: none;
 }
 
 .header__cart__quantity {
