@@ -10,7 +10,7 @@ angular
     sv.clearCart = clearCart;
     sv.getTotal = getTotal;
     sv.getItemsQuantity = getItemsQuantity;
-
+    
     function findProduct(id) {
       return sv.cart.findIndex(product => product.id === id);
     }

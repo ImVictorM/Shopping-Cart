@@ -1,7 +1,13 @@
 <section class="cart-overview">
   <h3 class="cart-overview__title">My cart</h3>
 
-  <ul class="cart-overview__list">
+  <div class="cart-overview__empty" ng-if="$ctrl.isCartEmpty">
+    <span class="material-icons cart-overview__empty__icon">add_shopping_cart</span>
+    <p>Nothing here...</p>
+    <p>Try adding some products to your cart!</p>
+  </div>
+  
+  <ul ng-if="!$ctrl.isCartEmpty" class="cart-overview__list">
     <li class="cart-overview__list__item" ng-repeat="overviewItem in $ctrl.products">
       <div class="cart-overview__list__item__presentation">
         <img class="cart-overview__list__item__presentation__img" ng-src="{{overviewItem.thumbnail}}" />
@@ -19,7 +25,7 @@
     </li>
   </ul>
 
-  <div class="cart-overview__summary">
+  <div ng-if="!$ctrl.isCartEmpty" class="cart-overview__summary">
     <p class="cart-overview__summary__total">Products total: <span>{{$ctrl.total | brlCurrencyFilter}}</span></p>
 
     <div class="cart-overview__summary__controls">
