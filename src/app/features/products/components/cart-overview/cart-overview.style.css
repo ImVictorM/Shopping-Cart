@@ -79,6 +79,11 @@
   color: var(--card-title-color);
   font-weight: 600;
   font-size: 0.9rem;
+  overflow: hidden;
+  display: -webkit-box;    /* Enables the use of the -webkit-line-clamp property */
+  -webkit-line-clamp: 3;   /* Limits the text to 3 lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;  
 }
 
 .cart-overview__list__item__buying-details {
