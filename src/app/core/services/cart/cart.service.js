@@ -1,5 +1,5 @@
 angular
-  .module("core.services.headerBase")
+  .module("core.services.cart")
   .service("Cart", ["$rootScope", function ($rootScope) {
     const sv = this;
 

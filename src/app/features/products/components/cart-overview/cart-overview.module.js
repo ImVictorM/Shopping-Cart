@@ -1,4 +1,4 @@
 angular.module("features.products.components.cartOverview", [
-  "core.services.headerBase",
+  "core.services.cart",
   "shared.filters.brlCurrencyFilter"
 ]);
