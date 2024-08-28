@@ -7,7 +7,7 @@ angular
       "Cart",
       function ProductListController(MercadoLivreAPI, Cart) {
         const ctrl = this;
-        ctrl.test = "sim"
+        
         ctrl.loading = true;
         ctrl.products = [];
 

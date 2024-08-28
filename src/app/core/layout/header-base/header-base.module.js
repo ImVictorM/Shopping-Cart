@@ -1,1 +1,3 @@
-angular.module("core.layout.headerBase", []);
+angular.module("core.layout.headerBase", [
+  "core.services.cart",
+]);

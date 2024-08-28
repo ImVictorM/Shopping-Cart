@@ -5,7 +5,7 @@
 
   <button class="header__cart">
     <i class="material-icons header__cart__icon">shopping_cart</i>
-    <span class="header__cart__quantity">10</span>
+    <span ng-show="$ctrl.cartItemsQuantity !== 0" class="header__cart__quantity">{{$ctrl.cartItemsQuantity}}</span>
   </button>
     
   <div class="header__section">
