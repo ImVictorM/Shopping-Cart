@@ -1,0 +1,1 @@
+angular.module("features.products.filters.stock", []);

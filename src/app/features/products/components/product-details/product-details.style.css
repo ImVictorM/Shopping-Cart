@@ -1,0 +1,146 @@
+.product {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background-color);
+  border-radius: var(--card-border-radius);
+  flex-grow: 1;
+  padding: 1em;
+}
+
+.product__visual {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.product__visual__thumbnail {
+  padding: 1em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-height: 600px;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.product__visual__images {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.product__visual__images__image {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  img {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+  }
+}
+
+.product__details {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+}
+
+.product__details__condition {
+  color: var(--muted-color);
+  text-transform: capitalize;
+}
+
+.product__details__title {
+  color: var(--card-title-color);
+  margin-bottom: 0.7em;
+}
+
+.product__details__pricing {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+
+.product__details__pricing__base {
+  text-decoration: line-through;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+.product__details__pricing__current {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  line-height: 3rem;
+}
+
+.product__details__pricing__discount {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.product__details__stock {
+  font-weight: 600;
+}
+
+.product__details__stock--active {
+  color: var(--primary-contrast-color);
+}
+
+.product__details__stock--inactive {
+  color: red;
+}
+
+.product__details__add {
+  margin-top: 3em;
+}
+
+@media screen and (min-width: 800px) {
+  .product {
+    flex-direction: row;
+  }
+
+  .product__visual {
+    width: 65%;
+    flex-direction: row-reverse;
+  }
+
+  .product__visual__images {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1em 0.5em;
+    max-height: 430px;
+    min-width: 90px;
+  }
+
+  .product__visual__thumbnail {
+    padding: 3em 0.5em;
+  }
+
+  .product__details {
+    margin: 4em 0 0 1em;
+    width: 35%;
+  }
+}

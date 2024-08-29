@@ -8,8 +8,12 @@ body {
 }
 
 #content {
+  display: flex;
+  flex-direction: column;
   position: relative;
   margin-top: var(--header-height);
+  padding: 1em 0.5em;
+  min-height: calc(100vh - var(--header-height));
 }
 
 .primary-button-outline,
@@ -35,4 +39,8 @@ body {
   background-color: var(--title-color);
   color: var(--primary-contrast-color);
   font-weight: 600;
+}
+
+.primary-link {
+  color: var(--primary-contrast-color);
 }
