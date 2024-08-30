@@ -6,14 +6,6 @@
   flex-grow: 1;
 }
 
-.products__loading {
-  position: absolute;
-  right: 50%;
-  top: 50%;
-  transform: translate(50%, -50%);
-  opacity: 0.5;
-}
-
 .products__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));

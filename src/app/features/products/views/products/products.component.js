@@ -13,6 +13,7 @@ angular
         MercadoLivreAPI
           .getProductsByType("computer")
           .then((response) => {
+  
             ctrl.products = response.results.map((p) => ({
               seller: {
                 id: p.seller.id,
@@ -22,6 +23,7 @@ angular
               title: p.title,
               price: p.price,
               thumbnail: p.thumbnail,
+              availableQuantity: p.available_quantity,
             }));
             
             ctrl.loading = false;

@@ -8,7 +8,7 @@
   </div>
   
   <ul ng-if="!$ctrl.isCartEmpty" class="cart-overview__list">
-    <li class="cart-overview__list__item" ng-repeat="overviewItem in $ctrl.products">
+    <li class="cart-overview__list__item" ng-repeat="overviewItem in $ctrl.products track by overviewItem.id">
       <div class="cart-overview__list__item__presentation">
         <img class="cart-overview__list__item__presentation__img" ng-src="{{overviewItem.thumbnail}}" />
       </div>

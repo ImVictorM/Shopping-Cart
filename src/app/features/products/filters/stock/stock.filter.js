@@ -3,7 +3,7 @@ angular
   .filter("stock", [function () {
     return function (input) {
       if (!input) return;
-
+  
       switch (input.toLowerCase()) {
         case "active":
           return "In stock";
