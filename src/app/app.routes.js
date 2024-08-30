@@ -6,7 +6,7 @@ angular
         template: "<h1>hello</h1>"
       })
       .when("/products", {
-        templateUrl: "app/features/products/views/products/products.template.html",
+        template: "<products/>",
       })
       .when("/products/:id", {
         templateUrl: "app/features/products/views/product-details/product-details.template.html",
