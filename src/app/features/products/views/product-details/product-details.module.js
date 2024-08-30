@@ -1,4 +1,4 @@
-angular.module("features.products.components.productDetails", [
+angular.module("features.products.views.productDetails", [
   "ngRoute",
   "features.products.services.MercadoLivre",
   "shared.filters.brlCurrencyFilter",

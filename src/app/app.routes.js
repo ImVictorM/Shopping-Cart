@@ -9,7 +9,7 @@ angular
         template: "<products/>",
       })
       .when("/products/:id", {
-        templateUrl: "app/features/products/views/product-details/product-details.template.html",
+        template: "<product-details/>",
       })
       .when("/", {
         redirectTo: "/products",

@@ -1,3 +1,39 @@
-<main class="product-details">
-  <product-details class="product-details__product"></product-details>
+<main class="product" ng-if="!$ctrl.loading">
+  <div class="product__visual">
+    <div class="product__visual__thumbnail">
+      <img ng-src="{{$ctrl.product.currentImage}}" alt="{{$ctrl.product.title}}"/>
+    </div>
+
+    <ul class="product__visual__images">
+      <li ng-repeat="image in $ctrl.product.images" class="product__visual__images__image">
+        <img ng-click="$ctrl.changeCurrentImage(image)" ng-src="{{image}}" alt="{{$ctrl.product.title}}" />
+      </li>
+    </ul>
+  </div>
+
+  <div class="product__details">
+    <span class="product__details__condition">{{$ctrl.product.condition}}</span>
+    <h2 class="product__details__title">{{$ctrl.product.title}}</h2>
+    <p class="product__details__description">{{$ctrl.product.description}}</p>
+
+    <div class="product__details__pricing">
+      <span ng-if="$ctrl.product.hasDiscount" class="product__details__pricing__base">
+        {{$ctrl.product.originalPrice | brlCurrencyFilter}}
+      </span>
+      <span class="product__details__pricing__current">
+        {{$ctrl.product.price | brlCurrencyFilter}}
+      </span>
+      <span ng-if="$ctrl.product.hasDiscount" class="product__details__pricing__discount">{{$ctrl.product.discountPercentage | number:2}}% OFF</span>
+    </div>
+
+    <span 
+      ng-class="[$ctrl.product.status === 'active' ? 'product__details__stock--active' : 'product__details__stock--inactive']" 
+      class="product__details__stock"
+    >
+      {{$ctrl.product.status | stock}}
+    </span>
+    <p>See this product in <a target="_blank" class="primary-link" href="{{$ctrl.product.origin}}">Mercado Livre</a></p>
+
+    <button ng-click="$ctrl.addToCart()" type="button" class="product__details__add primary-button">Add to the cart</button>
+  </div>
 </main>
