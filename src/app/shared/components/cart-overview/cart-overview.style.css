@@ -2,10 +2,11 @@
   padding: 1em 1em;
   display: flex;
   flex-direction: column;
-  background-color: #EEEEEE;
+  background-color: var(--background-color-contrast);
   border-left: 1px solid #DDDDDD;
   width: 100%;
   position: relative;
+  height: 100%;
 }
 
 .cart-overview__empty {

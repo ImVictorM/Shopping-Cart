@@ -1,7 +1,7 @@
 angular.module("features.products", [
   "ngRoute",
   "features.products.components.productBaseCard",
-  "features.products.components.cartOverview",
+  "shared.components.cartOverview",
   "features.products.views.productDetails",
   "features.products.views.products",
   "features.products.services.MercadoLivre",

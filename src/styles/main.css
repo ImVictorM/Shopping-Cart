@@ -5,6 +5,15 @@
 body {
   font-family: Epilogue, sans-serif;
   background-color: var(--background-color);
+
+  &.blur {
+    #content > * {
+      filter: blur(4px) brightness(0.7);
+      pointer-events: none;
+      user-select: none;
+      transition: all 0.25s ease-in;
+    }
+  }
 }
 
 .loading-center {
