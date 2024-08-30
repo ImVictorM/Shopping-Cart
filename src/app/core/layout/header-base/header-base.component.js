@@ -7,6 +7,7 @@ angular
 
       ctrl.cartItemsQuantity = Cart.getItemsQuantity();
       ctrl.currentSectionTitle = getSectionTitle();
+      ctrl.toggleCartOverview = Cart.toggleCartOverview;
 
       $rootScope.$on("cart:updated", function () {
         ctrl.cartItemsQuantity = Cart.getItemsQuantity();

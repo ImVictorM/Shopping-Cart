@@ -4,12 +4,15 @@ angular
     const sv = this;
 
     sv.key = "cart";
+    sv.showCartOverview = false;
+
     sv.cart = getLocalStorageState();
     sv.addProductToCart = addProductToCart;
     sv.removeProductFromCart = removeProductFromCart;
     sv.clearCart = clearCart;
     sv.getTotal = getTotal;
     sv.getItemsQuantity = getItemsQuantity;
+    sv.toggleCartOverview = toggleCartOverview;
     
     function findProduct(id) {
       return sv.cart.findIndex(product => product.id === id);
@@ -73,6 +76,10 @@ angular
 
     function notifyCartUpdated() {
       $rootScope.$broadcast("cart:updated");
+    }
+
+    function toggleCartOverview() {
+      sv.showCartOverview = !sv.showCartOverview;
     }
 
     function getLocalStorageState() {
