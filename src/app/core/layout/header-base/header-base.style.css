@@ -115,8 +115,6 @@
 .header__menu {
   --menu-size: 36px;
 
-  display: block;
-  
   padding: 0.2em;
   cursor: pointer;
   background-color: transparent;
@@ -160,11 +158,5 @@
 
   .header__brand {
     font-size: 1.5rem;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .header__menu {
-    display: none;
   }
 }

@@ -158,6 +158,7 @@
 
   .product__visual__thumbnail {
     padding: 3em 0.5em;
+    height: 100%;
 
     img {
       width: 500px;

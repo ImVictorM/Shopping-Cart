@@ -6,9 +6,10 @@ angular
       "$location", 
       "$rootScope", 
       "$scope",
+      "$window",
       "$document",
       "Cart", 
-      function ($location, $rootScope, $scope, $document, Cart) {
+      function ($location, $rootScope, $scope, $window, $document, Cart) {
         const ctrl = this;
 
         ctrl.cartItemsQuantity = Cart.getItemsQuantity();
@@ -22,22 +23,49 @@ angular
 
         $rootScope.$on('$locationChangeSuccess', function () {
           ctrl.currentSectionTitle = getSectionTitle();
+          handleMenuVisibility();
         });
 
-        $scope.$watch(function() {
-          return ctrl.showCartOverview;
-        }, function (show) {
-          const body = $document.find("body");
+        $scope.$watch(function() { return ctrl.showCartOverview; }, toggleBodyBlur);
 
+        handleMenuVisibility();
+
+        angular.element($window).on("resize", handleMenuVisibility);
+
+        function handleMenuVisibility() {
+          const headerMenu = $document[0].querySelector(".header__menu");
+
+          if ($window.innerWidth > 1200 && $location.path() === "/products") {
+            if (headerMenu) {
+              headerMenu.style.display = "none";
+            }
+            
+            if (!$rootScope.$$phase && !$scope.$$phase) {
+              $scope.$apply(function () {
+                ctrl.showCartOverview = false;
+              });
+            } else {
+              ctrl.showCartOverview = false;
+            }
+          } else {
+            if (headerMenu) {
+              headerMenu.style.display = "flex";
+            }
+          }
+        }
+
+        function toggleCartOverview() {
+          ctrl.showCartOverview = !ctrl.showCartOverview;
+        }
+
+        function toggleBodyBlur (show) {
+          const body = $document.find("body");
+          
           if (show) {
             body.addClass("blur");
           } else {
             body.removeClass("blur");
           };
-        });
-
-        function toggleCartOverview() {
-          ctrl.showCartOverview = !ctrl.showCartOverview;
         }
 
         function getSectionTitle() {
