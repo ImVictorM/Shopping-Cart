@@ -117,7 +117,7 @@
 }
 
 .product__details__stock--inactive {
-  color: red;
+  color: var(--danger-color);
 }
 
 .product__details__link-checkout {

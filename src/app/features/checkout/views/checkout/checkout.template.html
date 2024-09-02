@@ -1,0 +1,135 @@
+<main class="content-container">
+  <section class="checkout">
+    <section class="checkout__info">
+      <div class="checkout__info__header">
+        <div class="checkout__info__header__left">
+          <div class="checkout__info__header__left__title">
+            <span
+              class="material-icons checkout__info__header__left__title__icon"
+              >shopping_basket</span
+            >
+            <p class="checkout__info__header__left__title__text">Products</p>
+          </div>
+
+          <p class="checkout__info__header__left__disclaimer">
+            Sold and delivered by: <span>Tech Cart</span>
+          </p>
+        </div>
+
+        <div class="checkout__info__header__right">
+          <button type="button" class="danger-button-outline">
+            <span class="material-icons">delete</span> Remove all products
+          </button>
+        </div>
+      </div>
+
+      <ul class="checkout__info__products">
+        <li
+          ng-repeat="product in $ctrl.products track by product.id"
+          class="checkout__info__products__item"
+        >
+          <div class="checkout__info__products__item__presentation">
+            <img
+              class="checkout__info__products__item__presentation__img"
+              ng-src="{{product.thumbnail}}"
+              alt="{{product.title}}"
+            />
+            <div>
+              <span class="checkout__info__products__item__presentation__seller"
+                >{{product.seller.name}}</span
+              >
+              <h4
+                class="checkout__info__products__item__presentation__title"
+                title="{{product.title}}"
+              >
+                {{product.title}}
+              </h4>
+            </div>
+          </div>
+
+          <div class="checkout__info__products__item__quantity">
+            <span>QTY</span>
+
+            <div class="checkout__info__products__item__quantity__controls">
+              <button
+                class="checkout__info__products__item__quantity__controls__control"
+                type="button"
+              >
+                <span class="material-icons">chevron_left</span>
+              </button>
+              <span
+                class="checkout__info__products__item__quantity__controls__qty"
+                >{{product.quantity}}</span
+              >
+              <button
+                class="checkout__info__products__item__quantity__controls__control"
+                type="button"
+              >
+                <span class="material-icons">chevron_right</span>
+              </button>
+            </div>
+
+            <button type="button" class="checkout__info__products__item__quantity__remove">
+              <span class="material-icons">delete</span> Remove
+            </button>
+          </div>
+
+          <div class="checkout__info__products__item__total">
+            <p>Total</p>
+            <p class="checkout__info__products__item__total__amount">{{product.subtotal | brlCurrencyFilter}}</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <aside class="checkout__summary">
+      <div class="checkout__summary__header">
+        <span class="material-icons checkout__summary__header__icon">summarize</span>
+        <p class="checkout__summary__header__title">Summary</p>
+      </div>
+
+      <div class="checkout__summary__details">
+        <p>Products total amount</p>
+        <p class="checkout__summary__details__total-amount">{{$ctrl.totalAmount | brlCurrencyFilter}}</p>
+      </div>
+
+      <form class="checkout__summary__address">
+        <div class="form-control-group--vertical">
+          <label for="zip-code">
+            Zip code
+          </label>
+          <input type="text" id="zip-code" maxlength="8" />
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="street">Street</label>
+          <input type="text" id="street" />
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="neighborhood">Neighborhood</label>
+          <input type="text" id="neighborhood" />
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="city">City</label>
+          <input type="text" id="city" />
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="state">State</label>
+          <input type="text" id="state" />
+        </div>
+        
+        <div class="form-control-group--vertical">
+          <label for="complement">Complement</label>
+          <input type="text" id="complement" />
+        </div>
+      </form>
+
+      <div class="checkout__summary__order">
+        <button class="primary-button" type="button">Place order</button>
+      </div>
+    </aside>
+  </section>
+</main>

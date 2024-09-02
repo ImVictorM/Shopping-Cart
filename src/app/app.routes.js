@@ -3,7 +3,7 @@ angular
   .config(["$routeProvider", function ($routeProvider) {
     $routeProvider
       .when("/checkout", {
-        template: "<h1>hello</h1>"
+        template: "<checkout/>"
       })
       .when("/products", {
         template: "<products/>",
