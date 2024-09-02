@@ -12,7 +12,5 @@ angular
         ctrl.products = Cart.cart;
         ctrl.totalAmount = Cart.getTotal();
       });
-
-      console.log(ctrl.products)
     }],
   });

@@ -6,14 +6,24 @@ angular
     },
     templateUrl: "app/features/products/components/product-base-card/product-base-card.template.html",
     controller: [
+      "$window",
       "Cart",
-      function ProductBaseCardController(Cart) {
+      "MercadoLivreAPI",
+      function ProductBaseCardController($window, Cart, MercadoLivreAPI) {
         const ctrl = this;
 
         ctrl.addToCart = function () {
           if (!ctrl.product) return;
 
-          Cart.addProductToCart(ctrl.product);
+          MercadoLivreAPI
+            .getProductById(ctrl.product.id)
+            .then((response) => {
+              if (response.status === "active") {
+                Cart.addProductToCart(ctrl.product);
+              } else {
+                $window.alert(`The product ${ctrl.product.title} is not available in this moment`);
+              }
+            });
         };
       }
     ],

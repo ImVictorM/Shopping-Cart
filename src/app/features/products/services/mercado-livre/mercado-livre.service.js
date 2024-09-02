@@ -33,6 +33,21 @@ angular
             console.error(error);
             throw error;
           });
-      } 
+      },
+      getSellerById: function (id) {
+        const endpoint = `${domain}/users/${id}`;
+
+        return $http
+          .get(endpoint)
+          .then((response) => {
+            return response.data;
+          })
+          .catch((error) => {
+            error.message = `Error fetching seller of id ${id}`;
+
+            console.error(error);
+            throw error;
+          });
+      }
     }
   }]);

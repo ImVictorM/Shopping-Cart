@@ -5,12 +5,15 @@ angular
     controller: [
       "$routeParams",
       "$rootScope",
+      "$scope",
+      "DiscountUtils",
       "MercadoLivreAPI",
       "Cart",
-      function ProductDetailsController($routeParams, $rootScope, MercadoLivreAPI, Cart) {
+      function ProductDetailsController($routeParams, $rootScope, $scope, DiscountUtils, MercadoLivreAPI, Cart) {
         const ctrl = this;
 
         ctrl.product = null;
+        ctrl.seller = null;
         ctrl.loading = true;
         ctrl.changeCurrentImage = changeCurrentImage;
         ctrl.addToCart = addToCart;
@@ -21,13 +24,30 @@ angular
           ctrl.product.quantityInCart = getProductQuantityInCart(ctrl.product.id);
         });
 
+        $scope.$watch(() => ctrl.product ? ctrl.product.sellerId : null, function (sellerId) {
+          if (sellerId) {
+            MercadoLivreAPI
+              .getSellerById(sellerId)
+              .then(response => {
+                ctrl.seller = {
+                  address: response.address,
+                  id: response.id,
+                  name: response.nickname,
+                  link: response.permalink,
+                  reputation: response.seller_reputation,
+                }
+              });
+          }
+        });
+
         MercadoLivreAPI
           .getProductById($routeParams.id)
           .then((response) => {
             const images = response.pictures.map(picture => picture.url);
-
+      
             ctrl.product = {
               id: response.id,
+              sellerId: response.seller_id,
               thumbnail: response.thumbnail,
               currentImage: images[0],
               images: images,
@@ -38,8 +58,8 @@ angular
               description: response.descriptions.join(", "),
               status: response.status,
               origin: response.permalink,
-              hasDiscount: checkIfHasDiscount(response.original_price, response.price),
-              discountPercentage: calculateDiscount(response.original_price, response.price),
+              hasDiscount: DiscountUtils.checkIfHasDiscount(response.original_price, response.price),
+              discountPercentage: DiscountUtils.calculateDiscount(response.original_price, response.price),
               quantityInCart: getProductQuantityInCart(response.id),
             };
 
@@ -61,21 +81,17 @@ angular
           if (!ctrl.product) return;
           
           Cart.addProductToCart({
+            seller: {
+              id: ctrl.seller.id,
+              name: ctrl.seller.name,
+            },
             id: ctrl.product.id,
             title: ctrl.product.title,
             price: ctrl.product.price,
             thumbnail: ctrl.product.thumbnail,
+            hasDiscount: ctrl.product.hasDiscount,
+            discountPercentage: ctrl.product.discountPercentage,
           });
-        }
-
-        function checkIfHasDiscount(basePrice, currentPrice) {
-          return basePrice && currentPrice && basePrice > currentPrice;
-        }
-
-        function calculateDiscount(basePrice, currentPrice) {
-          if (!checkIfHasDiscount(basePrice, currentPrice)) return;
-
-          return Math.round((basePrice - currentPrice) * 100 / basePrice);
         }
     }],
   });

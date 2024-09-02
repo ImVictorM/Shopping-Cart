@@ -4,7 +4,8 @@ angular
     templateUrl: "app/features/products/views/products/products.template.html",
     controller: [
       "MercadoLivreAPI",
-      function ProductsController(MercadoLivreAPI) {
+      "DiscountUtils",
+      function ProductsController(MercadoLivreAPI, DiscountUtils) {
         const ctrl = this;
 
         ctrl.loading = true;
@@ -13,7 +14,7 @@ angular
         MercadoLivreAPI
           .getProductsByType("computer")
           .then((response) => {
-  
+       
             ctrl.products = response.results.map((p) => ({
               seller: {
                 id: p.seller.id,
@@ -23,7 +24,8 @@ angular
               title: p.title,
               price: p.price,
               thumbnail: p.thumbnail,
-              availableQuantity: p.available_quantity,
+              hasDiscount: DiscountUtils.checkIfHasDiscount(p.original_price, p.price),
+              discountPercentage: DiscountUtils.calculateDiscount(p.original_price, p.price),
             }));
             
             ctrl.loading = false;
