@@ -22,6 +22,7 @@ angular
 
         $rootScope.$on('$locationChangeSuccess', function () {
           ctrl.currentSectionTitle = getSectionTitle();
+          ctrl.showCartOverview = false;
         });
 
         $scope.$watch(function() { return ctrl.showCartOverview; }, toggleBodyBlur);

@@ -21,8 +21,8 @@ angular
   
           function handleMenuVisibility() {
             const headerMenu = element[0];
-  
-            if ($window.innerWidth > 1200 && $location.path() === "/products") {
+      
+            if ($window.innerWidth > 1200 && $location.path() === "/products" || $location.path() === "/checkout") {
               headerMenu.style.display = "none";
           
               if (!scope.$$phase && !scope.$root.$$phase) {
