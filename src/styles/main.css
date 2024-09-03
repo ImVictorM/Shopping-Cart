@@ -126,11 +126,13 @@ body {
 .form-control-group--vertical {
   display: flex;
   flex-direction: column;
-  margin: 0.5em 0;
+  margin: 0.5em 0 1.5em;
+  position: relative;
   
   label {
     font-size: 0.9rem;
   }
+
   input {
     width: 100%;
     padding: .375rem .75rem;
@@ -145,5 +147,13 @@ body {
     &:focus {
       outline-color: var(--primary-contrast-color);
     }
+  }
+
+  span {
+    position: absolute;
+    bottom: -1.25rem;
+    right: 0;
+    color: var(--danger-color);
+    font-size: 0.75rem;
   }
 }

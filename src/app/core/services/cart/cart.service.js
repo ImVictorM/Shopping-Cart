@@ -33,15 +33,15 @@ angular
       notifyCartUpdated();
     }
 
-    function removeProductFromCart(id) {
-      const productIndex = findProduct(product.id);
+    function removeProductFromCart(id, force = false) {
+      const productIndex = findProduct(id);
       if (productIndex === -1) return;
 
-      if (sv.cart[productIndex].quantity > 1) {
+      if (sv.cart[productIndex].quantity > 1 && !force) {
         sv.cart[productIndex].quantity -= 1;
         sv.cart[productIndex].subtotal -= sv.cart[productIndex].price;
       } else {
-        sv.cart = sv.cart.filter(product => product.id !== id);
+        sv.cart.splice(productIndex, 1);
       }
       
       updateLocalStorage(sv.cart);

@@ -164,7 +164,7 @@
   display: flex;
   flex-direction: row;
   gap: 0.5em;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .checkout__summary__header__icon {
@@ -196,7 +196,7 @@
 }
 
 .checkout__summary__address {
-  margin: 2em 0;
+  margin: 1em 0;
 }
 
 .checkout__summary__order {

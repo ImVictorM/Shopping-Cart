@@ -17,7 +17,11 @@
         </div>
 
         <div class="checkout__info__header__right">
-          <button type="button" class="danger-button-outline">
+          <button
+            ng-click="$ctrl.clearCart()"
+            type="button"
+            class="danger-button-outline"
+          >
             <span class="material-icons">delete</span> Remove all products
           </button>
         </div>
@@ -54,6 +58,8 @@
               <button
                 class="checkout__info__products__item__quantity__controls__control"
                 type="button"
+                ng-click="$ctrl.decreaseQuantity(product.id)"
+                ng-disabled="product.quantity === 1"
               >
                 <span class="material-icons">chevron_left</span>
               </button>
@@ -64,19 +70,26 @@
               <button
                 class="checkout__info__products__item__quantity__controls__control"
                 type="button"
+                ng-click="$ctrl.increaseQuantity(product)"
               >
                 <span class="material-icons">chevron_right</span>
               </button>
             </div>
 
-            <button type="button" class="checkout__info__products__item__quantity__remove">
+            <button
+              ng-click="$ctrl.removeProduct(product.id)"
+              type="button"
+              class="checkout__info__products__item__quantity__remove"
+            >
               <span class="material-icons">delete</span> Remove
             </button>
           </div>
 
           <div class="checkout__info__products__item__total">
             <p>Total</p>
-            <p class="checkout__info__products__item__total__amount">{{product.subtotal | brlCurrencyFilter}}</p>
+            <p class="checkout__info__products__item__total__amount">
+              {{product.subtotal | brlCurrencyFilter}}
+            </p>
           </div>
         </li>
       </ul>
@@ -84,51 +97,104 @@
 
     <aside class="checkout__summary">
       <div class="checkout__summary__header">
-        <span class="material-icons checkout__summary__header__icon">summarize</span>
+        <span class="material-icons checkout__summary__header__icon"
+          >summarize</span
+        >
         <p class="checkout__summary__header__title">Summary</p>
       </div>
 
       <div class="checkout__summary__details">
         <p>Products total amount</p>
-        <p class="checkout__summary__details__total-amount">{{$ctrl.totalAmount | brlCurrencyFilter}}</p>
+        <p class="checkout__summary__details__total-amount">
+          {{$ctrl.totalAmount | brlCurrencyFilter}}
+        </p>
       </div>
 
       <form class="checkout__summary__address">
         <div class="form-control-group--vertical">
-          <label for="zip-code">
-            Zip code
-          </label>
-          <input type="text" id="zip-code" maxlength="8" />
+          <label for="zip-code"> Zip code </label>
+          <input
+            ng-model="$ctrl.orderAddress.zipCode.value"
+            type="text"
+            id="zip-code"
+            maxlength="8"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.zipCode.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.zipCode.notValidMessage}}</span
+          >
         </div>
 
         <div class="form-control-group--vertical">
           <label for="street">Street</label>
-          <input type="text" id="street" />
+          <input
+            ng-model="$ctrl.orderAddress.street.value"
+            type="text"
+            id="street"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.street.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.street.notValidMessage}}</span
+          >
         </div>
 
         <div class="form-control-group--vertical">
           <label for="neighborhood">Neighborhood</label>
-          <input type="text" id="neighborhood" />
+          <input
+            ng-model="$ctrl.orderAddress.neighborhood.value"
+            type="text"
+            id="neighborhood"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.neighborhood.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.neighborhood.notValidMessage}}</span
+          >
         </div>
 
         <div class="form-control-group--vertical">
           <label for="city">City</label>
-          <input type="text" id="city" />
+          <input
+            ng-model="$ctrl.orderAddress.city.value"
+            type="text"
+            id="city"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.city.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.city.notValidMessage}}</span
+          >
         </div>
 
         <div class="form-control-group--vertical">
           <label for="state">State</label>
-          <input type="text" id="state" />
+          <input
+            ng-model="$ctrl.orderAddress.state.value"
+            type="text"
+            id="state"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.state.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.state.notValidMessage}}</span
+          >
         </div>
-        
+
         <div class="form-control-group--vertical">
           <label for="complement">Complement</label>
-          <input type="text" id="complement" />
+          <input
+            ng-model="$ctrl.orderAddress.complement.value"
+            type="text"
+            id="complement"
+          />
         </div>
       </form>
 
       <div class="checkout__summary__order">
-        <button class="primary-button" type="button">Place order</button>
+        <button
+          ng-disabled="!$ctrl.isOrderFormValid"
+          class="primary-button"
+          type="button"
+        >
+          Place order
+        </button>
       </div>
     </aside>
   </section>
