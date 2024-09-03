@@ -3,6 +3,8 @@
   flex-direction: row;
   flex-grow: 1;
   gap: 2em;
+  overflow: auto;
+  max-height: calc(var(--content-height) - 2em);
 }
 
 .checkout__info,
@@ -17,6 +19,7 @@
   flex-direction: column;
   width: 70%;
   padding: 1em 1.5em;
+  height: fit-content;
 }
 
 .checkout__info__header {
@@ -147,6 +150,9 @@
 }
 
 .checkout__summary {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
   width: 30%;

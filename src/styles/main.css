@@ -30,13 +30,22 @@ body {
   flex-direction: column;
   margin-top: var(--header-height);
   padding: 1em 0.5em;
-  min-height: calc(100vh - var(--header-height));
+  min-height: var(--content-height);
 
   & > :first-child {
     display: flex;
     flex-direction: column;
     position: relative;
     min-height: calc(var(--content-height) - 2em);
+  }
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

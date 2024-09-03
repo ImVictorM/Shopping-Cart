@@ -13,7 +13,7 @@
         <img ng-src="{{$ctrl.product.currentImage}}" alt="{{$ctrl.product.title}}"/>
       </div>
   
-      <ul class="product__visual__images">
+      <ul class="product__visual__images hide-scrollbar">
         <li 
           ng-repeat="image in $ctrl.product.images" 
           ng-class="{'product__visual__images__image--selected': $ctrl.product.currentImage === image}"
