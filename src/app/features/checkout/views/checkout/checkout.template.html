@@ -192,10 +192,16 @@
           ng-disabled="!$ctrl.isOrderFormValid"
           class="primary-button"
           type="button"
+          ng-click="$ctrl.showModal()"
         >
           Place order
         </button>
       </div>
     </aside>
   </section>
+
+  <confirm-modal on-confirm="$ctrl.handleModalConfirm()" show="$ctrl.shouldShowModal" title="Place Order">
+    <p>This project does not make any real transactions.</p>
+    <p>The moment you confirm the order, The only thing that will happen is that your cart will be cleared. No worries!</p>
+  </confirm-modal>
 </main>

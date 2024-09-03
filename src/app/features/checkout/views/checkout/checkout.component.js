@@ -13,6 +13,16 @@ angular
         ctrl.products = Cart.cart;
         ctrl.totalAmount = Cart.getTotal();
 
+        ctrl.shouldShowModal = false;
+
+        ctrl.showModal = function () {
+          ctrl.shouldShowModal = true;
+        }
+
+        ctrl.handleModalConfirm = function() {
+          Cart.clearCart();
+        }
+
         ctrl.orderAddress = {
           zipCode: {
             value: "",
@@ -62,7 +72,6 @@ angular
           Cart.removeProductFromCart(id);
         }
         ctrl.increaseQuantity = function (product) {
-          console.log(product)
           Cart.addProductToCart(product);
         }
 

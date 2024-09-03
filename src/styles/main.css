@@ -60,6 +60,7 @@ body {
 
 .primary-button-outline,
 .primary-button,
+.danger-button,
 .danger-button-outline {
   display: flex;
   flex-direction: row;
@@ -82,9 +83,14 @@ body {
 
 .primary-button {
   background-color: var(--primary-contrast-color);
-  border: 0;
   color: var(--title-color);
   border: 1px solid rgba(0,0,0,0.1);
+}
+
+.danger-button {
+  border: 1px solid rgba(0,0,0,0.1);
+  background-color: var(--danger-color);
+  color: var(--title-color);
 }
 
 .primary-button-outline {
