@@ -1,0 +1,218 @@
+<main class="content-container">
+  <section ng-if="$ctrl.isCartEmpty" class="checkout-empty">
+    <span class="material-icons checkout-empty__icon">production_quantity_limits</span>
+    <h1 class="checkout-empty__title">Your cart is <span>empty</span>. Lets change that!</h1>
+    <p class="checkout-empty__text">You can add products to your cart then proceed to checkout.</p>
+    <a href="#!/products" class="checkout-empty__link primary-button">Return to shop</a>
+  </section>
+
+  <a href="javascript:history.back()" class="primary-link-back">
+    <span class="material-icons primary-link-back__icon">arrow_back_2</span><span class="primary-link-back__text">Go back</span>
+  </a>
+
+  <section ng-if="!$ctrl.isCartEmpty" class="checkout hide-scrollbar">
+    <section class="checkout__info">
+      <div class="checkout__info__header">
+        <div class="checkout__info__header__left">
+          <div class="checkout__info__header__left__title">
+            <span
+              class="material-icons checkout__info__header__left__title__icon"
+              >shopping_basket</span
+            >
+            <p class="checkout__info__header__left__title__text">Products</p>
+          </div>
+
+          <p class="checkout__info__header__left__disclaimer">
+            Sold and delivered by: <span>Tech Cart</span>
+          </p>
+        </div>
+
+        <div class="checkout__info__header__right">
+          <button
+            ng-click="$ctrl.clearCart()"
+            type="button"
+            class="danger-button-outline"
+          >
+            <span class="material-icons">delete</span> Remove all products
+          </button>
+        </div>
+      </div>
+
+      <ul class="checkout__info__products">
+        <li
+          ng-repeat="product in $ctrl.products track by product.id"
+          class="checkout__info__products__item"
+        >
+          <div class="checkout__info__products__item__presentation">
+            <img
+              class="checkout__info__products__item__presentation__img"
+              ng-src="{{product.thumbnail}}"
+              alt="{{product.title}}"
+            />
+            <div>
+              <span class="checkout__info__products__item__presentation__seller"
+                >{{product.seller.name}}</span
+              >
+              <h4
+                class="checkout__info__products__item__presentation__title"
+                title="{{product.title}}"
+              >
+                {{product.title}}
+              </h4>
+            </div>
+          </div>
+
+          <div class="checkout__info__products__item__quantity">
+            <span>QTY</span>
+
+            <div class="checkout__info__products__item__quantity__controls">
+              <button
+                class="checkout__info__products__item__quantity__controls__control"
+                type="button"
+                ng-click="$ctrl.decreaseQuantity(product.id)"
+                ng-disabled="product.quantity === 1"
+              >
+                <span class="material-icons">chevron_left</span>
+              </button>
+              <span
+                class="checkout__info__products__item__quantity__controls__qty"
+                >{{product.quantity}}</span
+              >
+              <button
+                class="checkout__info__products__item__quantity__controls__control"
+                type="button"
+                ng-click="$ctrl.increaseQuantity(product)"
+              >
+                <span class="material-icons">chevron_right</span>
+              </button>
+            </div>
+
+            <button
+              ng-click="$ctrl.removeProduct(product.id)"
+              type="button"
+              class="checkout__info__products__item__quantity__remove"
+            >
+              <span class="material-icons">delete</span> Remove
+            </button>
+          </div>
+
+          <div class="checkout__info__products__item__total">
+            <p>Total</p>
+            <p class="checkout__info__products__item__total__amount">
+              {{product.subtotal | brlCurrencyFilter}}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <aside class="checkout__summary">
+      <div class="checkout__summary__header">
+        <span class="material-icons checkout__summary__header__icon"
+          >summarize</span
+        >
+        <p class="checkout__summary__header__title">Summary</p>
+      </div>
+
+      <div class="checkout__summary__details">
+        <p>Products total amount</p>
+        <p class="checkout__summary__details__total-amount">
+          {{$ctrl.totalAmount | brlCurrencyFilter}}
+        </p>
+      </div>
+
+      <form class="checkout__summary__address">
+        <div class="form-control-group--vertical">
+          <label for="zip-code"> Zip code </label>
+          <input
+            ng-model="$ctrl.orderAddress.zipCode.value"
+            type="text"
+            id="zip-code"
+            maxlength="8"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.zipCode.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.zipCode.notValidMessage}}</span
+          >
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="street">Street</label>
+          <input
+            ng-model="$ctrl.orderAddress.street.value"
+            type="text"
+            id="street"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.street.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.street.notValidMessage}}</span
+          >
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="neighborhood">Neighborhood</label>
+          <input
+            ng-model="$ctrl.orderAddress.neighborhood.value"
+            type="text"
+            id="neighborhood"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.neighborhood.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.neighborhood.notValidMessage}}</span
+          >
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="city">City</label>
+          <input
+            ng-model="$ctrl.orderAddress.city.value"
+            type="text"
+            id="city"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.city.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.city.notValidMessage}}</span
+          >
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="state">State</label>
+          <input
+            ng-model="$ctrl.orderAddress.state.value"
+            type="text"
+            id="state"
+          />
+          <span
+            ng-if="!$ctrl.orderAddress.state.isValid && !$ctrl.isOrderFormBlank"
+            >{{$ctrl.orderAddress.state.notValidMessage}}</span
+          >
+        </div>
+
+        <div class="form-control-group--vertical">
+          <label for="complement">Complement</label>
+          <input
+            ng-model="$ctrl.orderAddress.complement.value"
+            type="text"
+            id="complement"
+          />
+        </div>
+      </form>
+
+      <div class="checkout__summary__order">
+        <button
+          ng-disabled="!$ctrl.isOrderFormValid"
+          class="primary-button"
+          type="button"
+          ng-click="$ctrl.showModal()"
+        >
+          Place order
+        </button>
+      </div>
+    </aside>
+
+    <confirm-modal on-confirm="$ctrl.handleModalConfirm()" show="$ctrl.shouldShowModal" title="Place Order">
+      <p>This project does not make any real transactions.</p>
+      <p>The moment you confirm the order, The only thing that will happen is that your cart will be cleared. No worries!</p>
+    </confirm-modal>
+  </section>
+</main>

@@ -1,0 +1,34 @@
+<div class="modal-overlay" ng-if="$ctrl.show">
+  <div class="modal">
+    <header class="modal__header">
+      <h2 class="modal__header__title">{{$ctrl.title}}</h2>
+
+      <button ng-click="$ctrl.handleOnClose()" class="modal__header__close">
+        <span class="material-icons">close</span>
+      </button>
+    </header>
+
+    <div class="modal__body">
+      <div ng-transclude></div>
+    </div>
+
+    <footer class="modal__footer">
+      <div class="modal__footer__controls">
+        <button
+          ng-click="$ctrl.handleOnConfirm()"
+          type="button"
+          class="primary-button"
+        >
+          Confirm
+        </button>
+        <button
+          ng-click="$ctrl.handleOnCancel()"
+          type="button"
+          class="danger-button"
+        >
+          Cancel
+        </button>
+      </div>
+    </footer>
+  </div>
+</div>

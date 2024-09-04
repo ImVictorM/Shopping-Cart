@@ -1,0 +1,38 @@
+.products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  flex-grow: 1;
+}
+
+.products__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  grid-gap: 0.7em;
+  padding: 0.5em;
+
+  width: 100%;
+  position: relative;
+}
+
+.products__cart-overview {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  top: var(--header-height);
+  right: 0;
+  left: 70%;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .products {
+    width: calc(70% - 4em);
+    margin: 0 2em;
+  }
+  
+  .products__cart-overview {
+    display: flex;
+  }
+}

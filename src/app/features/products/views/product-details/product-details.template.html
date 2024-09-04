@@ -1,0 +1,77 @@
+
+
+<main class="content-container">
+  <a href="javascript:history.back()" class="primary-link-back">
+    <span class="material-icons primary-link-back__icon">arrow_back_2</span><span class="primary-link-back__text">Go back</span>
+  </a>
+
+  <img ng-if="$ctrl.loading" class="loading-center" src="/assets/icons/loading-spinner.svg"/>
+  
+  <section ng-if="!$ctrl.loading" class="product">
+    <div class="product__visual">
+      <div class="product__visual__thumbnail">
+        <img ng-src="{{$ctrl.product.currentImage}}" alt="{{$ctrl.product.title}}"/>
+      </div>
+  
+      <ul class="product__visual__images hide-scrollbar">
+        <li 
+          ng-repeat="image in $ctrl.product.images" 
+          ng-class="{'product__visual__images__image--selected': $ctrl.product.currentImage === image}"
+          class="product__visual__images__image"
+          ng-click="$ctrl.changeCurrentImage(image)"
+        >
+          <img ng-src="{{image}}" alt="{{$ctrl.product.title}}" />
+        </li>
+      </ul>
+    </div>
+  
+    <div class="product__details">
+      <span class="product__details__condition">{{$ctrl.product.condition}}</span>
+      <h2 class="product__details__title">{{$ctrl.product.title}}</h2>
+      <p class="product__details__description">{{$ctrl.product.description}}</p>
+      <p>
+        Sold by <a class="primary-link" target="_blank" href="{{$ctrl.seller.link}}">{{$ctrl.seller.name}}</a>
+      </p>
+  
+      <div class="product__details__pricing">
+        <span ng-if="$ctrl.product.hasDiscount" class="product__details__pricing__base">
+          {{$ctrl.product.originalPrice | brlCurrencyFilter}}
+        </span>
+        <span class="product__details__pricing__current">
+          {{$ctrl.product.price | brlCurrencyFilter}}
+        </span>
+        <span ng-if="$ctrl.product.hasDiscount" class="product__details__pricing__discount">{{$ctrl.product.discountPercentage | number:2}}% OFF</span>
+      </div>
+  
+      <span 
+        ng-class="[$ctrl.product.status === 'active' ? 'product__details__stock--active' : 'product__details__stock--inactive']" 
+        class="product__details__stock"
+      >
+        {{$ctrl.product.status | stock}}
+      </span>
+      <p>See this product in <a target="_blank" class="primary-link" href="{{$ctrl.product.origin}}">Mercado Livre</a></p>
+      
+      <a 
+        href="#!/checkout" 
+        class="product__details__link-checkout primary-button-outline"
+      >
+        Go to checkout
+      </a>
+      <button 
+        ng-click="$ctrl.addToCart()" 
+        type="button" 
+        class="product__details__add primary-button"
+        ng-disabled="$ctrl.product.status !== 'active'"
+      >
+        Add to the cart
+      </button>
+  
+      <span 
+        ng-if="$ctrl.product.quantityInCart > 0"
+        class="product__details__cart-quantity"
+      >
+        Quantity in cart: {{$ctrl.product.quantityInCart}}
+      </span>
+    </div>
+  </section>
+</main>

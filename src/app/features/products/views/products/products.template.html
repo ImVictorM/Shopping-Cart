@@ -1,0 +1,12 @@
+<main class="products">
+  <img ng-if="$ctrl.loading" class="loading-center" src="/assets/icons/loading-spinner.svg"/>
+  
+  <ul ng-if="!$ctrl.loading" class="products__list">
+    <product-base-card 
+      ng-repeat="product in $ctrl.products track by product.id"
+      product="product"
+    ></product-base-card>
+  </ul>
+  
+  <cart-overview class="products__cart-overview"></cart-overview>
+</main> 

@@ -1,0 +1,36 @@
+<section class="cart-overview">
+  <h3 class="cart-overview__title">My cart</h3>
+
+  <div class="cart-overview__empty" ng-if="$ctrl.isCartEmpty">
+    <span class="material-icons cart-overview__empty__icon">add_shopping_cart</span>
+    <p>Nothing here...</p>
+    <p>Try adding some products to your cart!</p>
+  </div>
+  
+  <ul ng-if="!$ctrl.isCartEmpty" class="cart-overview__list">
+    <li class="cart-overview__list__item" ng-repeat="overviewItem in $ctrl.products track by overviewItem.id">
+      <div class="cart-overview__list__item__presentation">
+        <img class="cart-overview__list__item__presentation__img" ng-src="{{overviewItem.thumbnail}}" />
+      </div>
+      
+      <div class="cart-overview__list__item__product-details">
+        <p class="cart-overview__list__item__product-details__seller">{{overviewItem.seller.name}}</p>
+        <p title="{{overviewItem.title}}" class="cart-overview__list__item__product-details__title">{{overviewItem.title}}</p>
+      </div>
+      
+      <div class="cart-overview__list__item__buying-details">
+        <p class="cart-overview__list__item__buying-details__quantity">Quantity: <span>{{overviewItem.quantity}}</span></p>
+        <p class="cart-overview__list__item__buying-details__subtotal"><span>{{overviewItem.subtotal | brlCurrencyFilter}}</span></p>
+      </div>
+    </li>
+  </ul>
+
+  <div ng-if="!$ctrl.isCartEmpty" class="cart-overview__summary">
+    <p class="cart-overview__summary__total">Products total: <span>{{$ctrl.total | brlCurrencyFilter}}</span></p>
+
+    <div class="cart-overview__summary__controls">
+      <button ng-click="$ctrl.clearCart()" type="button" class="danger-button-outline">Clear cart</button>
+      <a href="#!/checkout" class="primary-button">Go to checkout</a>
+    </div>
+  </div>
+</section>

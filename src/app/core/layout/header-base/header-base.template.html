@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="header__brand">
+    <span class="header__brand__text"><strong>Tech Cart</strong> shopping</span>
+  </div>
+
+  <a href="#!/checkout" class="header__cart">
+    <i class="material-icons header__cart__icon">shopping_cart</i>
+    <span ng-show="$ctrl.cartItemsQuantity !== 0" class="header__cart__quantity">{{$ctrl.cartItemsQuantity}}</span>
+  </a>
+    
+  <div class="header__section">
+    <span class="header__section__title">{{$ctrl.currentSectionTitle}}</span>
+  </div>
+
+  <button 
+    ng-click="$ctrl.toggleCartOverview()" 
+    type="button" 
+    class="header__menu"
+    ng-class="[$ctrl.showCartOverview ? 'header__menu--open' : 'header__menu--closed']"
+    header-menu-visibility
+  >
+    <span class="material-icons">menu</span>
+  </button>
+
+  <section 
+    ng-class="[$ctrl.showCartOverview ? 'header__cart-overview--show' : 'header__cart-overview--hide']" 
+    class="header__cart-overview"
+  >
+    <cart-overview class="header__cart-overview__list"></cart-overview>
+  </section>
+</header>
