@@ -2,7 +2,7 @@
 
 ## Overview 🌟
 
-Tech Cart is an elegant e-commerce application built using angularjs v1.8. It allows users to explore tech products, manage their shopping cart, and place simulated orders. The application prioritizes a smooth user experience and is optimized for both desktop and mobile devices.<br/>
+Tech Cart is an elegant e-commerce application built using Angularjs v1.8. It allows users to explore tech products, manage their shopping cart, and place simulated orders. The application prioritizes a smooth user experience and is optimized for both desktop and mobile devices.<br/>
 The applications follows a feature-based architecture. This structure was inspired by best practices outlined in [This guide](https://medium.com/@marketing_26756/angular-best-practices-tips-for-project-structure-and-organization-490ca7950829).
 
 ## Services used 🌐
@@ -11,6 +11,7 @@ The applications follows a feature-based architecture. This structure was inspir
 - [ViaCep API](https://viacep.com.br/): Used to get address information using zip code as parameter.
 
 ## Main technologies used 🧰
+
 <img 
    alt="Static Badge" 
    src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" 
