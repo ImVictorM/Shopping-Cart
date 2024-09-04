@@ -8,16 +8,12 @@ angular
       ctrl.products = Cart.cart;
       ctrl.clearCart = Cart.clearCart;
       ctrl.total = Cart.getTotal();
-      ctrl.isCartEmpty = checkIsCartEmpty();
+      ctrl.isCartEmpty = Cart.checkIsCartEmpty();
 
       $rootScope.$on("cart:updated", function () {
         ctrl.total = Cart.getTotal();
         ctrl.products = Cart.cart;
-        ctrl.isCartEmpty = checkIsCartEmpty();
+        ctrl.isCartEmpty = Cart.checkIsCartEmpty();
       });
-
-      function checkIsCartEmpty() {
-        return Cart.cart.length === 0;
-      }
     }]
   });

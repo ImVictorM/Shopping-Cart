@@ -10,6 +10,7 @@ angular
     sv.clearCart = clearCart;
     sv.getTotal = getTotal;
     sv.getItemsQuantity = getItemsQuantity;
+    sv.checkIsCartEmpty = checkIsCartEmpty;
     
     function findProduct(id) {
       return sv.cart.findIndex(product => product.id === id);
@@ -84,4 +85,8 @@ angular
 
       return []
     };
+
+    function checkIsCartEmpty() {
+      return sv.cart.length === 0;
+    }
   }]);

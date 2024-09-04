@@ -1,5 +1,12 @@
 <main class="content-container">
-  <section class="checkout hide-scrollbar">
+  <section ng-if="$ctrl.isCartEmpty" class="checkout-empty">
+    <span class="material-icons checkout-empty__icon">production_quantity_limits</span>
+    <h1 class="checkout-empty__title">Your cart is <span>empty</span>. Lets change that!</h1>
+    <p class="checkout-empty__text">You can add products to your cart then proceed to checkout.</p>
+    <a href="#!/products" class="checkout-empty__link primary-button">Return to shop</a>
+  </section>
+
+  <section ng-if="!$ctrl.isCartEmpty" class="checkout hide-scrollbar">
     <section class="checkout__info">
       <div class="checkout__info__header">
         <div class="checkout__info__header__left">
@@ -198,10 +205,10 @@
         </button>
       </div>
     </aside>
-  </section>
 
-  <confirm-modal on-confirm="$ctrl.handleModalConfirm()" show="$ctrl.shouldShowModal" title="Place Order">
-    <p>This project does not make any real transactions.</p>
-    <p>The moment you confirm the order, The only thing that will happen is that your cart will be cleared. No worries!</p>
-  </confirm-modal>
+    <confirm-modal on-confirm="$ctrl.handleModalConfirm()" show="$ctrl.shouldShowModal" title="Place Order">
+      <p>This project does not make any real transactions.</p>
+      <p>The moment you confirm the order, The only thing that will happen is that your cart will be cleared. No worries!</p>
+    </confirm-modal>
+  </section>
 </main>

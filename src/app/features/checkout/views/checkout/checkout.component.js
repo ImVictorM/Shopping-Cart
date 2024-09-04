@@ -11,6 +11,7 @@ angular
         const ctrl = this;
 
         ctrl.products = Cart.cart;
+        ctrl.isCartEmpty = Cart.checkIsCartEmpty();
         ctrl.totalAmount = Cart.getTotal();
 
         ctrl.shouldShowModal = false;
@@ -134,6 +135,7 @@ angular
         $rootScope.$on("cart:updated", function () {
           ctrl.products = Cart.cart;
           ctrl.totalAmount = Cart.getTotal();
+          ctrl.isCartEmpty = Cart.checkIsCartEmpty();
         });
       }
     ],
