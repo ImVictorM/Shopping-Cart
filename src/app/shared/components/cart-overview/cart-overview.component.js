@@ -1,7 +1,7 @@
 angular
   .module("shared.components.cartOverview")
   .component("cartOverview", {
-    templateUrl: "app/shared/components/cart-overview/cart-overview.template.html",
+    templateUrl: "src/app/shared/components/cart-overview/cart-overview.template.html",
     controller: ["$rootScope", "Cart", function ($rootScope, Cart) {
       const ctrl = this;
 

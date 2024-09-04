@@ -1,7 +1,7 @@
 angular
   .module("features.checkout.views.checkout")
   .component("checkout", {
-    templateUrl: "app/features/checkout/views/checkout/checkout.template.html",
+    templateUrl: "src/app/features/checkout/views/checkout/checkout.template.html",
     controller: [
       "$rootScope", 
       "$scope", 

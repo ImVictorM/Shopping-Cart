@@ -1,7 +1,7 @@
 angular
   .module("features.products.views.productDetails")
   .component("productDetails", {
-    templateUrl: "app/features/products/views/product-details/product-details.template.html",
+    templateUrl: "src/app/features/products/views/product-details/product-details.template.html",
     controller: [
       "$routeParams",
       "$rootScope",

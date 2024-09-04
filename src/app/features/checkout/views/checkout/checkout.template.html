@@ -6,7 +6,7 @@
     <a href="#!/products" class="checkout-empty__link primary-button">Return to shop</a>
   </section>
 
-  <a href="javascript:history.back()" class="primary-link-back">
+  <a ng-if="!$ctrl.isCartEmpty" href="javascript:history.back()" class="primary-link-back">
     <span class="material-icons primary-link-back__icon">arrow_back_2</span><span class="primary-link-back__text">Go back</span>
   </a>
 

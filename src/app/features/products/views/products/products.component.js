@@ -1,7 +1,7 @@
 angular
   .module("features.products.views.products")
   .component("products", {
-    templateUrl: "app/features/products/views/products/products.template.html",
+    templateUrl: "src/app/features/products/views/products/products.template.html",
     controller: [
       "MercadoLivreAPI",
       "DiscountUtils",
