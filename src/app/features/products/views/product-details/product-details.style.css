@@ -94,6 +94,7 @@
   font-weight: 700;
   color: var(--secondary-color);
   line-height: 3rem;
+  margin-top: 0.5em;
 }
 
 .product__details__pricing__discount {

@@ -29,6 +29,9 @@
       <span class="product__details__condition">{{$ctrl.product.condition}}</span>
       <h2 class="product__details__title">{{$ctrl.product.title}}</h2>
       <p class="product__details__description">{{$ctrl.product.description}}</p>
+      <p>
+        Sold by <a class="primary-link" target="_blank" href="{{$ctrl.seller.link}}">{{$ctrl.seller.name}}</a>
+      </p>
   
       <div class="product__details__pricing">
         <span ng-if="$ctrl.product.hasDiscount" class="product__details__pricing__base">
