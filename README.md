@@ -1,66 +1,44 @@
-# Shopping Cart 🛒
+# Tech Cart 🛒
 
-## Project Context
-In this project, I used the [Mercado livre API](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas)  to build a dynamic e-commerce website. You can add products to the cart and see the total amount of the shopping. Don't spend too much ;)
+## Overview 🌟
 
+Tech Cart is an elegant e-commerce application built using angularjs v1.8. It allows users to explore tech products, manage their shopping cart, and place simulated orders. The application prioritizes a smooth user experience and is optimized for both desktop and mobile devices.<br/>
+The applications follows a feature-based architecture. This structure was inspired by best practices outlined in [This guide](https://medium.com/@marketing_26756/angular-best-practices-tips-for-project-structure-and-organization-490ca7950829).
 
-## Used Technologies
-<table>
-    <thead>
-        <tr>
-            <th>HTML5</th>
-            <th>CSS3</th>
-            <th>Jest</th>
-            <th>JavaScript</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td align="center">
-                <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> 
-                    <img 
-                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" 
-                        alt="html5" 
-                        width="40" 
-                        height="40"
-                    /> 
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
-                    <img 
-                        src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" 
-                        alt="css3" 
-                        width="40" 
-                        height="40"
-                    />
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://jestjs.io" target="_blank" rel="noreferrer"> 
-                    <img 
-                        src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" 
-                        alt="jest" 
-                        width="40" 
-                        height="40"
-                    /> 
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
-                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" 
-                        alt="javascript" 
-                        width="40" 
-                        height="40"
-                    /> 
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+## Services used 🌐
 
-## Running the application
+- [Mercadolibre API](https://developers.mercadolivre.com.br/en_us/introduction-products): This API powers the core functionality of the application. If the API experiences instability, the app may display error messages or blank pages.
+- [ViaCep API](https://viacep.com.br/): Used to get address information using zip code as parameter.
 
-- 1. Clone this repository
-- 2. Open the index.html (I recommend opening it with a live server)
+## Main technologies used 🧰
 
+<img alt="Static Badge" src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" style="margin-bottom: 4px;" height="30px"/>
+<img alt="Static Badge" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" style="margin-bottom: 4px;" height="30px"/> <br/>
+<img alt="Static Badge" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" style="margin-bottom: 4px;" height="30px" />
+<img alt="Static Badge" src="https://img.shields.io/badge/angularjs-%230F0F11?style=for-the-badge&logo=angular&logoColor=white" style="margin-bottom: 4px;" height="30px"/>
+
+## Setup 🛠️
+
+Before starting the application, ensure you have [Node.js](https://nodejs.org/en) installed in your environment.
+
+1. Clone and enter the repository:
+
+   ```sh
+   git clone git@github.com:ImVictorM/Tech-Cart.git && cd Tech-Cart
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Start the application:
+
+   ```sh
+   npm start
+   ```
+
+## License 📜
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
