@@ -6,10 +6,10 @@
   "description": "Simple e-commerce application using angular",
   "type": "commonjs",
   "scripts": {
+    "build": "npm run copy-libs",
     "postinstall": "npm run copy-libs",
     "start": "http-server . -a localhost -p 7000 -c-1",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" src/app/lib -C",
-    "prestart": "npm install"
+    "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" src/app/lib -C"
   },
   "dependencies": {
     "angular": "^1.8.2",
