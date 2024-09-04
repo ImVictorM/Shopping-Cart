@@ -8,7 +8,7 @@ The applications follows a feature-based architecture. This structure was inspir
 ## Services used 🌐
 
 - [Mercadolibre API](https://developers.mercadolivre.com.br/en_us/introduction-products): This API powers the core functionality of the application. If the API experiences instability, the app may display error messages or blank pages.
-- [ViaCep API](https://viacep.com.br/): Used to get address information using zip code as parameter.
+- [ViaCep API](https://viacep.com.br/): Used to get address information using ZIP code as parameter.
 
 ## Main technologies used 🧰
 
