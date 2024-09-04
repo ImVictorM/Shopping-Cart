@@ -11,11 +11,31 @@ The applications follows a feature-based architecture. This structure was inspir
 - [ViaCep API](https://viacep.com.br/): Used to get address information using zip code as parameter.
 
 ## Main technologies used 🧰
-
-<img alt="Static Badge" src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" style="margin-bottom: 4px;" height="30px"/>
-<img alt="Static Badge" src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" style="margin-bottom: 4px;" height="30px"/> <br/>
-<img alt="Static Badge" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" style="margin-bottom: 4px;" height="30px" />
-<img alt="Static Badge" src="https://img.shields.io/badge/angularjs-%230F0F11?style=for-the-badge&logo=angular&logoColor=white" style="margin-bottom: 4px;" height="30px"/>
+<img 
+   alt="Static Badge" 
+   src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" 
+   style="margin-bottom: 4px;" 
+   height="30px"
+/>
+<img 
+   alt="Static Badge" 
+   src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" 
+   style="margin-bottom: 4px;"
+   height="30px"
+/>
+<br/>
+<img 
+   alt="Static Badge" 
+   src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" 
+   style="margin-bottom: 4px;" 
+   height="30px"
+/>
+<img 
+   alt="Static Badge" 
+   src="https://img.shields.io/badge/angularjs-%230F0F11?style=for-the-badge&logo=angular&logoColor=white" 
+   style="margin-bottom: 4px;" 
+   height="30px"
+/>
 
 ## Setup 🛠️
 
