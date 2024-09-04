@@ -7,7 +7,7 @@
   "type": "commonjs",
   "scripts": {
     "postinstall": "npm run copy-libs",
-    "start": "http-server src/ -a localhost -p 7777 -c-1",
+    "start": "http-server . -a localhost -p 7000 -c-1",
     "copy-libs": "cpx \"node_modules/{angular,angular-*}/**/*\" src/app/lib -C",
     "prestart": "npm install"
   },

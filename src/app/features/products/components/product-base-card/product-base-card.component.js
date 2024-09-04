@@ -4,7 +4,7 @@ angular
     bindings: {
       product: "<",
     },
-    templateUrl: "app/features/products/components/product-base-card/product-base-card.template.html",
+    templateUrl: "src/app/features/products/components/product-base-card/product-base-card.template.html",
     controller: [
       "$window",
       "Cart",

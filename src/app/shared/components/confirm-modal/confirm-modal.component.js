@@ -8,7 +8,7 @@ angular
       show: "="
     },
     transclude: true,
-    templateUrl: "app/shared/components/confirm-modal/confirm-modal.template.html",
+    templateUrl: "src/app/shared/components/confirm-modal/confirm-modal.template.html",
     controller: [
       function ConfirmModalController() {
         const ctrl = this;
